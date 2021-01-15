@@ -46,6 +46,7 @@ func main() {
 
 	// Telegram webhook
 	http.HandleFunc(telegramPointsSocket, func(w http.ResponseWriter, req *http.Request) {
+		log.Print("it handling")
 		// First, decode the JSON response body
 		body := &gmodel.RequestMessageTelegram{}
 		if err := json.NewDecoder(req.Body).Decode(body); err != nil {
