@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"general_game/gmodel"
 	"log"
-	"points/utils"
 	"strconv"
 	"strings"
 	"teen_webhooks/controller"
@@ -125,7 +124,7 @@ func main() {
 		go handler.FailBroadcast()
 	})
 
-	if err := telega.ListenAndServeTLS(utils.SertificateName, utils.SertificateKey); err != nil {
+	if err := telega.ListenAndServeTLS(SertificateName, SertificateKey); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
 }
