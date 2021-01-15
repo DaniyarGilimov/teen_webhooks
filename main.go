@@ -107,7 +107,7 @@ func main() {
 			return
 		}
 
-		ons, _ := strconv.Atoi(roomID)
+		//ons, _ := strconv.Atoi(roomID)
 
 		//here we should do a script
 		// _, err := exec.Command("/bin/sh", "/home/danko/src/points_socket/lastroom.sh", roomID).Output()
@@ -117,7 +117,7 @@ func main() {
 		// }
 
 		go handler.Broadcast("Dead RoomID: " + roomID)
-		handler.KillRoom(ons)
+		//handler.KillRoom(ons)
 	})
 
 	// FaultHook
