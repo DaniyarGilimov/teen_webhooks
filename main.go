@@ -45,7 +45,7 @@ func main() {
 	c.Start()
 
 	// Telegram webhook
-	http.HandleFunc("/", func(w http.ResponseWriter, req *http.Request) {
+	http.HandleFunc("/thook", func(w http.ResponseWriter, req *http.Request) {
 		log.Print("it handling")
 		// First, decode the JSON response body
 		body := &gmodel.RequestMessageTelegram{}
