@@ -13,7 +13,7 @@ import (
 // SetStart t
 func SetStart(chatID int64) error {
 	//database connection
-	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURI)
+	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURITeen)
 
 	defer session.Close()
 
@@ -50,7 +50,7 @@ func SetStart(chatID int64) error {
 // SetStop t
 func SetStop(chatID int64) error {
 	//database connection
-	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURI)
+	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURITeen)
 
 	defer session.Close()
 
@@ -72,7 +72,7 @@ func SetStop(chatID int64) error {
 // SetLsofStop t
 func SetLsofStop(chatID int64) error {
 	//database connection
-	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURI)
+	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURITeen)
 
 	defer session.Close()
 
@@ -109,7 +109,7 @@ func SetLsofStop(chatID int64) error {
 // GetAllLsof used to get all subs lsof
 func GetAllLsof() ([]gmodel.TelegramSubscriber, error) {
 	//database connection
-	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURI)
+	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURITeen)
 
 	defer session.Close()
 
@@ -129,7 +129,7 @@ func GetAllLsof() ([]gmodel.TelegramSubscriber, error) {
 // GetAllActive used to get all active subs
 func GetAllActive() ([]gmodel.TelegramSubscriber, error) {
 	//database connection
-	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURI)
+	database, session, err := gcontroller.GetDB("telegram", gutils.DBTelegramURITeen)
 
 	defer session.Close()
 
