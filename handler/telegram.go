@@ -6,7 +6,6 @@ import (
 	"flag"
 	"general_game/gmodel"
 	"general_game/gutils"
-	"git_webhooks/controller"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -15,6 +14,7 @@ import (
 	"os/exec"
 	"os/signal"
 	"strconv"
+	"teen_webhooks/controller"
 
 	"github.com/gorilla/websocket"
 )
@@ -59,13 +59,13 @@ func LSOFBroadcast() {
 	}
 
 	//here we should do a script
-	cmd, err := exec.Command("/bin/sh", "/home/danko/src/git_webhooks/countOfSocket.sh").Output()
+	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_webhooks/countOfSocket.sh").Output()
 	if err != nil {
 		log.Print("error in executing bash for lsof " + err.Error())
 	}
 
 	// goroutines reading
-	dat, err := ioutil.ReadFile("/home/danko/src/points_socket/goCount.dat")
+	dat, err := ioutil.ReadFile("/home/teenko/src/teen_socket/goCount.dat")
 	if err != nil {
 		log.Print(err.Error())
 	}
@@ -107,13 +107,13 @@ func LSOFSingle(chatID int64, message string) {
 // LSOFUnicast used to unicast
 func LSOFUnicast(chatID int64) {
 	//here we should do a script
-	cmd, err := exec.Command("/bin/sh", "/home/danko/src/git_webhooks/countOfSocket.sh").Output()
+	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_webhooks/countOfSocket.sh").Output()
 	if err != nil {
 		log.Print("error in executing bash for lsof " + err.Error())
 	}
 
 	// goroutines reading
-	dat, err := ioutil.ReadFile("/home/danko/src/points_socket/goCount.dat")
+	dat, err := ioutil.ReadFile("/home/teenko/src/teen_socket/goCount.dat")
 	if err != nil {
 		log.Print(err.Error())
 	}
