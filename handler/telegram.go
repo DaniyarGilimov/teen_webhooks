@@ -59,7 +59,7 @@ func LSOFBroadcast() {
 	}
 
 	//here we should do a script
-	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_webhooks/countOfSocket.sh").Output()
+	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_socket/countOfSocket.sh").Output()
 	if err != nil {
 		log.Print("error in executing bash for lsof " + err.Error())
 	}
@@ -107,7 +107,7 @@ func LSOFSingle(chatID int64, message string) {
 // LSOFUnicast used to unicast
 func LSOFUnicast(chatID int64) {
 	//here we should do a script
-	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_webhooks/countOfSocket.sh").Output()
+	cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_socket/countOfSocket.sh").Output()
 	if err != nil {
 		log.Print("error in executing bash for lsof " + err.Error())
 	}
