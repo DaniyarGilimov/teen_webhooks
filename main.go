@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"general_game/gmodel"
 	"log"
+	"os/exec"
 	"strconv"
 	"strings"
 	"teen_webhooks/controller"
@@ -13,6 +14,7 @@ import (
 
 	"net/http"
 
+	"gopkg.in/go-playground/webhooks.v5/github"
 	"gopkg.in/robfig/cron.v3"
 )
 
@@ -97,6 +99,32 @@ func main() {
 			}
 			break
 		}
+	})
+
+	hook, _ := github.New(github.Options.Secret("a6309c80-ab92-11ea-8945-66a9028ef53c"))
+
+	// Github webhooks for points_socket
+	http.HandleFunc("/webhook", func(w http.ResponseWriter, r *http.Request) {
+		log.Print("in handler")
+		_, err := hook.Parse(r, github.PushEvent)
+		if err != nil {
+			if err == github.ErrEventNotFound || err.Error() == "invalid HTTP Method" {
+				log.Print("suck a dick")
+				return
+				// ok event wasn;t one of the ones asked to be parsed
+			}
+			log.Print(err.Error())
+		}
+
+		log.Print("lick a pussy")
+		//here we should do a script
+		cmd, err := exec.Command("/bin/sh", "/home/teenko/src/teen_webhooks/gitUpdater.sh").Output()
+		if err != nil {
+			log.Print("lick fat girl pussy")
+			fmt.Println(err)
+		}
+		log.Print("licker")
+		log.Print(string(cmd))
 	})
 
 	// Room not responding
